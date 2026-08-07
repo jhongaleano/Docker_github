@@ -1,0 +1,340 @@
+:root {
+    --bg-deep: #0a0a0f;
+    --bg-card: rgba(18, 18, 28, 0.65);
+    --bg-card-hover: rgba(28, 28, 42, 0.75);
+    --border-glass: rgba(255, 255, 255, 0.08);
+    --border-gold: rgba(212, 175, 95, 0.35);
+    --gold: #d4af5f;
+    --gold-light: #e8c97a;
+    --gold-dim: rgba(212, 175, 95, 0.15);
+    --text-primary: #f0ede8;
+    --text-muted: rgba(240, 237, 232, 0.55);
+    --text-subtle: rgba(240, 237, 232, 0.35);
+    --shadow-premium: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+    --blur: blur(20px);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg-deep);
+    background-image:
+        radial-gradient(ellipse 80% 60% at 50% -10%, rgba(212, 175, 95, 0.08) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 40% at 100% 100%, rgba(80, 60, 120, 0.12) 0%, transparent 50%),
+        radial-gradient(ellipse 40% 30% at 0% 80%, rgba(40, 80, 100, 0.08) 0%, transparent 50%);
+    min-height: 100vh;
+    color: var(--text-primary);
+    padding: 2.5rem 1rem 4rem;
+}
+
+.page-container {
+    max-width: 960px;
+}
+
+/* ── Header ── */
+.page-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.page-header h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--text-primary);
+    margin-bottom: 0.4rem;
+}
+
+.page-header h1 span {
+    color: var(--gold);
+}
+
+.page-header p {
+    font-size: 0.85rem;
+    font-weight: 300;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+
+/* ── Botón premium ── */
+.btn-premium {
+    background: linear-gradient(135deg, var(--gold) 0%, #b8943f 100%);
+    border: 1px solid var(--border-gold);
+    color: #0a0a0f;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.65rem 1.6rem;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(212, 175, 95, 0.25);
+}
+
+.btn-premium:hover {
+    background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 100%);
+    color: #0a0a0f;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 30px rgba(212, 175, 95, 0.35);
+}
+
+.btn-ghost {
+    background: transparent;
+    border: 1px solid var(--border-glass);
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.6rem 1.4rem;
+    border-radius: 2px;
+    transition: all 0.25s ease;
+}
+
+.btn-ghost:hover {
+    border-color: var(--border-gold);
+    color: var(--gold);
+    background: var(--gold-dim);
+}
+
+/* ── Card contenedor tabla ── */
+.glass-card {
+    background: var(--bg-card);
+    backdrop-filter: var(--blur);
+    -webkit-backdrop-filter: var(--blur);
+    border: 1px solid var(--border-glass);
+    border-radius: 4px;
+    box-shadow: var(--shadow-premium);
+    overflow: hidden;
+}
+
+.glass-card-header {
+    padding: 1.25rem 1.75rem;
+    border-bottom: 1px solid var(--border-glass);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.glass-card-header h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.35rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    margin: 0;
+    color: var(--text-primary);
+}
+
+.badge-count {
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    background: var(--gold-dim);
+    border: 1px solid var(--border-gold);
+    padding: 0.25rem 0.75rem;
+    border-radius: 2px;
+}
+
+/* ── Tabla premium ── */
+.table-premium {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0;
+}
+
+.table-premium thead tr {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.table-premium thead th {
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    padding: 1rem 1.75rem;
+    border-bottom: 1px solid var(--border-glass);
+    white-space: nowrap;
+}
+
+.table-premium tbody tr {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    transition: background 0.2s ease;
+}
+
+.table-premium tbody tr:last-child {
+    border-bottom: none;
+}
+
+.table-premium tbody tr:hover {
+    background: var(--bg-card-hover);
+}
+
+.table-premium tbody td {
+    padding: 1rem 1.75rem;
+    font-size: 0.875rem;
+    font-weight: 300;
+    color: var(--text-primary);
+    vertical-align: middle;
+}
+
+.table-premium tbody td:first-child {
+    color: var(--gold);
+    font-weight: 500;
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+}
+
+.table-premium tbody td:last-child {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+}
+
+/* ── Estado vacío ── */
+.empty-state {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: var(--text-muted);
+}
+
+.empty-state .icon {
+    font-size: 2.5rem;
+    opacity: 0.3;
+    margin-bottom: 1rem;
+}
+
+.empty-state p {
+    font-size: 0.875rem;
+    letter-spacing: 0.05em;
+}
+
+/* ── Modal premium ── */
+.modal-backdrop.show {
+    opacity: 0.75;
+    backdrop-filter: blur(4px);
+}
+
+.modal-premium .modal-dialog {
+    max-width: 480px;
+}
+
+.modal-premium .modal-content {
+    background: rgba(14, 14, 22, 0.92);
+    backdrop-filter: var(--blur);
+    -webkit-backdrop-filter: var(--blur);
+    border: 1px solid var(--border-glass);
+    border-radius: 4px;
+    box-shadow: var(--shadow-premium), 0 0 0 1px rgba(212, 175, 95, 0.06);
+    overflow: hidden;
+}
+
+.modal-premium .modal-header {
+    background: rgba(255, 255, 255, 0.02);
+    border-bottom: 1px solid var(--border-glass);
+    padding: 1.5rem 1.75rem 1.25rem;
+}
+
+.modal-premium .modal-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    color: var(--text-primary);
+}
+
+.modal-premium .modal-subtitle {
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-top: 0.2rem;
+}
+
+.modal-premium .btn-close {
+    filter: invert(1) opacity(0.4);
+    transition: opacity 0.2s;
+}
+
+.modal-premium .btn-close:hover {
+    filter: invert(1) opacity(0.8);
+}
+
+.modal-premium .modal-body {
+    padding: 1.75rem;
+}
+
+.modal-premium .modal-footer {
+    background: rgba(255, 255, 255, 0.02);
+    border-top: 1px solid var(--border-glass);
+    padding: 1.25rem 1.75rem;
+    gap: 0.75rem;
+}
+
+/* ── Formulario premium ── */
+.form-group-premium {
+    margin-bottom: 1.4rem;
+}
+
+.form-group-premium label {
+    display: block;
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+}
+
+.form-control-premium {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-glass);
+    border-radius: 2px;
+    color: var(--text-primary);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 300;
+    padding: 0.75rem 1rem;
+    transition: border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+    outline: none;
+}
+
+.form-control-premium::placeholder {
+    color: var(--text-subtle);
+}
+
+.form-control-premium:focus {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: var(--border-gold);
+    box-shadow: 0 0 0 3px rgba(212, 175, 95, 0.08);
+    color: var(--text-primary);
+}
+
+/* ── Línea decorativa dorada ── */
+.gold-divider {
+    width: 40px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 0.75rem auto 0;
+}
+
+/* ── Scrollbar sutil ── */
+.table-responsive::-webkit-scrollbar {
+    height: 4px;
+}
+
+.table-responsive::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.table-responsive::-webkit-scrollbar-thumb {
+    background: var(--border-gold);
+    border-radius: 2px;
+}
