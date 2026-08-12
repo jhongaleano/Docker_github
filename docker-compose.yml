@@ -1,12 +1,16 @@
 services:
 
-  nginx:
-    image: nginx:alpine
-    container_name: nginx-ejemplo
+  nginx-proxy-manager:
+    image: 'jc21/nginx-proxy-manager:latest'
+    container_name: proxy-manager
+    restart: always
     ports:
-      - "80:80"
+      - "80:80" #Http
+      - "81:81" #Administración de la API
+      - "443:443" #Https
     volumes:
-      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - ./npm_data:/data
+      - ./npm_letsencrypt:/etc/letsencrypt
     networks:
       - red-cba
   servidor-bd:
