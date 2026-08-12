@@ -24,10 +24,10 @@ services:
     networks:
       - red-cba
     healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p${MYSQL_ROOT_PASSWORD}"]
-      interval: 5s
+      test: ["CMD", "mysqladmin", "ping", "-h"]
+      interval: 10s
       timeout: 5s
-      retries: 5
+      retries: 3
 
   app_backend:
     build: .
