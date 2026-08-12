@@ -1,5 +1,5 @@
 FROM python
-WORKDIR /home/jhon/Proyectos/python-docker/
+WORKDIR /home/natalia/Proyecto_buenos/docker/Docker_github/
 
 COPY requirements.txt .
 

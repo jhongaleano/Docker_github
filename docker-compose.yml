@@ -33,7 +33,7 @@ services:
     build: .
     container_name: app-backend-ejemplo
     volumes:
-      - .:/home/jhon/Proyectos/python-docker/
+      - .:/home/natalia/Proyecto_buenos/docker/Docker_github/
     environment:
       FLASK_ENV: development
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
