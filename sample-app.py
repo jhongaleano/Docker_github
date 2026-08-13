@@ -15,8 +15,17 @@ BD = {
 }
 
 def get_connect():
-    return pymysql.connect(**BD)
-
+    max_retries = 10
+    for attempt in range(max_retries):
+        try:
+            return pymysql.connect(**BD)
+        except pymysql.err.OperationalError as e:
+            if attempt < max_retries - 1:
+                print(f"Base de datos no lista aún. Esperando... (Intento {attempt + 1}/{max_retries})")
+                time.sleep(3)
+            else:
+                raise e
+                
 def table_BD():
     connection = get_connect()
 

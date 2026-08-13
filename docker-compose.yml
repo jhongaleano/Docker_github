@@ -11,6 +11,9 @@ services:
     volumes:
       - ./npm_data:/data
       - ./npm_letsencrypt:/etc/letsencrypt
+    depends_on:
+      app_backend:
+        condition: service_healthy
     networks:
       - red-cba
   servidor-bd:
