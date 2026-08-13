@@ -1,5 +1,6 @@
 from flask import Flask,request,render_template,redirect,url_for
 import pymysql
+import time
 
 app = Flask("__name__")
 
@@ -25,7 +26,7 @@ def get_connect():
                 time.sleep(3)
             else:
                 raise e
-                
+
 def table_BD():
     connection = get_connect()
 
