@@ -12,7 +12,7 @@ BD = {
     'password':"sena123",
     'database':"adso_bd",
     'connect_timeout':3,
-    'cursorclass':pymysql.cursors.DictCursor
+    'cursorclass':pymysql.cursors.DictCursor,
 }
 
 def get_connect():
