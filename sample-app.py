@@ -7,7 +7,7 @@ app = Flask("__name__")
 
 BD = {
 
-    'host':"servidor-bd",
+    'host':"servidor-bd-ejemplo",
     'user':"root",
     'password':"sena123",
     'database':"adso_bd",
