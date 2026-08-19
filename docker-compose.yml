@@ -31,10 +31,8 @@ services:
       retries: 3
 
   app_backend:
-    build: .
+    image: jhongaleano/mi-api:latest
     container_name: app-backend-ejemplo
-    volumes:
-      - .:/home/natalia/Proyecto_buenos/docker/Docker_github/
     environment:
       FLASK_ENV: development
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
