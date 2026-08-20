@@ -45,6 +45,7 @@ jobs:
           context: .
           push: true
           tags: jhongaleano/mi-api:latest
+          no-cache: true
 
       - name: desplgue en cloud
         uses: appleboy/ssh-action@v1.0.3
@@ -54,5 +55,5 @@ jobs:
           key: ${{ secrets.SERVER_KEY }}
           script: |
             cd ~/Docker_github
-            docker compose pull app_backend
+            docker pull jhongaleano/mi-api:latest
             docker compose up -d
