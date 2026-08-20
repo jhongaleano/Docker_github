@@ -24,13 +24,8 @@ jobs:
           pip install pytest
 
       - name: Ejecutar pruebas
-        env:
-          DB_HOST: 127.0.0.1
-          DB_USER: root
-          MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-          MYSQL_DATABASE: ${MYSQL_DATABASE}
-          DB_PORT: 3306
         run: pytest
+        
   build-and-push:
     needs: test
     runs-on: ubuntu-latest

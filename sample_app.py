@@ -56,17 +56,20 @@ def table_BD():
 
 @app.route("/")
 def main():
-    connection = None
-    try:
-        connection = get_connect()
+    bd_status = ""
+    aprendices = []
 
-        with connection.cursor() as cursor:
+    try:
+        conn = get_connect()
+        with conn.cursor() as cursor:
             cursor.execute("SELECT * FROM aprendices ORDER BY id DESC")
             aprendices = cursor.fetchall()
-            return render_template('index.html',aprendices = aprendices)
+        conn.close()
+        bd_status = "CONEXION EXITOSA Y PRUEBA DE CI/CD y TEST EXITOSO"
+    except Exception as e:
+        bd_status = f"Error de conexión: {e}"
 
-    finally:
-        connection.close()
+    return render_template("index.html", bd_status = bd_status, aprendices = aprendices)
       
 
 @app.route("/registro", methods=['POST'])
