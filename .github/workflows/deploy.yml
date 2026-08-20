@@ -25,7 +25,7 @@ jobs:
 
       - name: Ejecutar pruebas
         run: pytest
-        
+
   build-and-push:
     needs: test
     runs-on: ubuntu-latest
@@ -55,4 +55,4 @@ jobs:
           script: |
             cd ~/Docker_github
             docker compose pull app_backend
-            docker compose up -d app_backend
+            docker compose up -d
