@@ -1,6 +1,5 @@
 FROM python
-WORKDIR /home/natalia/Proyecto_buenos/docker/Docker_github/
-
+WORKDIR /home/jhon/Proyectos/python-docker/
 COPY requirements.txt .
 
 RUN pip install -r requirements.txt
