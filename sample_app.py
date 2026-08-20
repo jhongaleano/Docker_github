@@ -49,7 +49,7 @@ def table_BD():
 
 
 
-table_BD()
+
 
 
 
@@ -95,4 +95,5 @@ def registro():
 
 
 if __name__ == '__main__':
+    table_BD()
     app.run(host="0.0.0.0", port=5050, debug=True)
