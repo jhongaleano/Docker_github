@@ -1,4 +1,3 @@
-
 from sample_app import app
 
 

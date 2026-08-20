@@ -54,20 +54,17 @@ table_BD()
 
 
 
-@app.route("/",methods=['GET'])
+@app.route("/")
 def main():
-    connection = get_connect()
 
     try:
+        connection = get_connect()
 
-        if request.method == 'GET':
-            sql_select = "SELECT id, nombre_completo, numero_documento, ficha, creado_en FROM aprendices"
-
-            with connection.cursor() as cursor:
-                cursor.execute(sql_select)
-                aprendices = cursor.fetchall()
-
+        with connection.cursor() as cursor:
+            cursor.execute("SELECT * FROM aprendices ORDER BY id DESC")
+            aprendices = cursor.fetchall()
             return render_template('index.html',aprendices = aprendices)
+
     finally:
         connection.close()
       
