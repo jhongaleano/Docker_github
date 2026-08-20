@@ -56,7 +56,7 @@ def table_BD():
 
 @app.route("/")
 def main():
-
+    connection = None
     try:
         connection = get_connect()
 
