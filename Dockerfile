@@ -2,6 +2,8 @@ FROM python
 WORKDIR /home/jhon/Proyectos/python-docker/
 COPY requirements.txt .
 
+RUN apt-get update && apt-get upgrade -y
+
 RUN pip install -r requirements.txt
 COPY . .
 EXPOSE 5050
