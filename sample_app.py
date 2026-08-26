@@ -1,7 +1,7 @@
 from flask import Flask,request,render_template,redirect,url_for
 import pymysql
 import time
-
+import os
 app = Flask("__name__")
 
 
@@ -9,7 +9,7 @@ BD = {
 
     'host':"servidor-bd-ejemplo",
     'user':"root",
-    'password':"sena123",
+    'password':os.getenv("MYSQL_ROOT_PASSWORD"),
     'database':"adso_bd",
     'connect_timeout':3,
     'cursorclass':pymysql.cursors.DictCursor,
@@ -98,5 +98,7 @@ def registro():
 
 
 if __name__ == '__main__':
+    hostPort = os.getenv("HOST")
+    debug = os.getenv("DEBUG")
     table_BD()
-    app.run(host="0.0.0.0", port=5050, debug=True)
+    app.run(host=hostPort, port=5050, debug=debug)
