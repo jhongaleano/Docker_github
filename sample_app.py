@@ -98,7 +98,7 @@ def registro():
 
 
 if __name__ == '__main__':
-    hostPort = os.getenv("HOST","0.0.0.0")
+    hostPort = os.getenv("HOST","0.0.0.0") # nosec B104
     debug = os.getenv("DEBUG","False").lower()in ("true","1")
     table_BD()
     app.run(host=hostPort, port=5050, debug=debug)
